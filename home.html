@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | NovaSpace</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body class="home-page">
+  <header class="navbar">
+    <a class="brand" href="home.html">
+      <span class="brand-icon">N</span> NovaSpace
+    </a>
+
+    <nav class="nav-links">
+      <a href="#dashboard">Dashboard</a>
+      <a href="#explore">Explore</a>
+      <button id="logoutButton" class="btn btn-outline">
+        Logout ↗
+      </button>
+    </nav>
+  </header>
+
+  <main class="dashboard" id="dashboard">
+    <section class="welcome-banner">
+      <div>
+        <p class="eyebrow">YOUR PERSONAL SPACE</p>
+        <h1>Welcome back, <span id="userName">User</span>! 👋</h1>
+        <p>You're logged in. Ready to make today productive?</p>
+      </div>
+      <div class="welcome-art" aria-hidden="true">✦</div>
+    </section>
+
+    <section class="section-heading" id="explore">
+      <div>
+        <p class="eyebrow">YOUR DASHBOARD</p>
+        <h2>Explore your space</h2>
+        <p>Discover something useful to do today.</p>
+      </div>
+    </section>
+
+    <section class="content-grid">
+      <article class="content-card">
+        <div class="card-icon purple">✦</div>
+        <h3>My Profile</h3>
+        <p>You're part of NovaSpace. Your account details are ready.</p>
+        <a href="#profileDetails" class="card-link">View details →</a>
+      </article>
+
+      <article class="content-card">
+        <div class="card-icon green">✓</div>
+        <h3>My Progress</h3>
+        <p>Take the next step toward completing your daily goals.</p>
+        <a href="#dailyTips" class="card-link">Get started →</a>
+      </article>
+
+      <article class="content-card">
+        <div class="card-icon orange">☀</div>
+        <h3>Daily Inspiration</h3>
+        <p>Small steps every day lead to meaningful achievements.</p>
+        <a href="#dailyTips" class="card-link">Stay inspired →</a>
+      </article>
+    </section>
+
+    <section class="info-panel" id="profileDetails">
+      <div>
+        <p class="eyebrow">ACCOUNT INFORMATION</p>
+        <h2>Your profile</h2>
+        <p><strong>Name:</strong> <span id="profileName"></span></p>
+        <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+      </div>
+      <div class="profile-symbol">👤</div>
+    </section>
+
+    <section class="info-panel tips-panel" id="dailyTips">
+      <div>
+        <p class="eyebrow">A LITTLE REMINDER</p>
+        <h2>Keep moving forward.</h2>
+        <p>Stay curious, keep learning, and celebrate your progress.</p>
+      </div>
+      <span class="tip-symbol">✧</span>
+    </section>
+
+    <footer class="site-footer">
+      © 2026 NovaSpace · Made for learning
+    </footer>
+  </main>
+</body>
+</html>
