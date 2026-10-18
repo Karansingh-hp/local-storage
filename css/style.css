@@ -1,18 +1,4 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
-:root {
-  --primary: #6c4cf1;
-  --primary-dark: #5033d2;
-  --text: #211d35;
-  --muted: #77748b;
-  --background: #f7f6fc;
-  --white: #ffffff;
-  --border: #e8e5f2;
-  --success: #16834a;
-  --danger: #d63c4b;
-  --shadow: 0 20px 60px rgba(47, 33, 100, 0.09);
-}
 
 * {
   box-sizing: border-box;
