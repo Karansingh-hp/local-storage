@@ -1,12 +1,10 @@
 
 "use strict";
 
-// LocalStorage keys
 const USER_KEY = "novaSpaceUser";
 const LOGIN_KEY = "novaSpaceLoggedIn";
 const EMAIL_KEY = "novaSpaceCurrentEmail";
 
-// Helper: display messages
 function showMessage(elementId, message, type) {
   const element = document.getElementById(elementId);
 
@@ -16,7 +14,7 @@ function showMessage(elementId, message, type) {
   element.className = "message " + type;
 }
 
-// Get registered user
+
 function getRegisteredUser() {
   try {
     const data = localStorage.getItem(USER_KEY);
@@ -26,7 +24,7 @@ function getRegisteredUser() {
   }
 }
 
-// Check whether the current session belongs to the stored user
+
 function isLoggedIn() {
   const user = getRegisteredUser();
 
@@ -37,7 +35,7 @@ function isLoggedIn() {
   );
 }
 
-// Q1: Registration
+
 const registerForm = document.getElementById("registerForm");
 
 if (registerForm) {
@@ -56,7 +54,7 @@ if (registerForm) {
     const confirmPassword = document.getElementById("confirmPassword")
       .value;
 
-    // Validate required fields
+    
     if (!name || !email || !password || !confirmPassword) {
       showMessage(
         "registerMessage",
@@ -66,7 +64,7 @@ if (registerForm) {
       return;
     }
 
-    // Validate email format
+    
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailPattern.test(email)) {
@@ -78,7 +76,7 @@ if (registerForm) {
       return;
     }
 
-    // Validate password length
+    
     if (password.length < 6) {
       showMessage(
         "registerMessage",
@@ -88,7 +86,7 @@ if (registerForm) {
       return;
     }
 
-    // Validate password confirmation
+    
     if (password !== confirmPassword) {
       showMessage(
         "registerMessage",
@@ -98,7 +96,7 @@ if (registerForm) {
       return;
     }
 
-    // Prevent overwriting an existing account
+    
     const existingUser = getRegisteredUser();
 
     if (existingUser && existingUser.email === email) {
@@ -110,7 +108,7 @@ if (registerForm) {
       return;
     }
 
-    // Save registered user
+    
     const user = {
       name: name,
       email: email,
@@ -120,7 +118,7 @@ if (registerForm) {
     try {
       localStorage.setItem(USER_KEY, JSON.stringify(user));
 
-      // Registration should not automatically log in the user
+      
       localStorage.removeItem(LOGIN_KEY);
       localStorage.removeItem(EMAIL_KEY);
 
@@ -132,7 +130,7 @@ if (registerForm) {
 
       registerForm.reset();
 
-      // Redirect after displaying the success message
+    
       setTimeout(function () {
         window.location.href = "index.html";
       }, 1200);
@@ -147,11 +145,11 @@ if (registerForm) {
   });
 }
 
-// Q2: Login
+
 const loginForm = document.getElementById("loginForm");
 
 if (loginForm) {
-  // If already logged in, open the homepage
+  
   if (isLoggedIn()) {
     window.location.replace("home.html");
   }
@@ -176,7 +174,7 @@ if (loginForm) {
 
     const user = getRegisteredUser();
 
-    // Check credentials
+  
     if (
       user &&
       user.email === email &&
@@ -215,7 +213,6 @@ if (loginForm) {
   });
 }
 
-// Q3 and Q4: Protect homepage and display user details
 const userNameElement = document.getElementById("userName");
 
 if (userNameElement) {
@@ -235,11 +232,11 @@ const logoutButton = document.getElementById("logoutButton");
 
 if (logoutButton) {
   logoutButton.addEventListener("click", function () {
-    // Remove session status
+
     localStorage.removeItem(LOGIN_KEY);
     localStorage.removeItem(EMAIL_KEY);
 
-    // Keep the registered account for the next login
+  
     window.location.replace("index.html");
   });
 }
